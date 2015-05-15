@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>anMouse Test</title>
+	<script src="../src/anMouse.js" type="text/javascript"></script>
+	<style type="text/css">
+		#square{width:200px;height:80px;border:1px solid black;margin:100px auto;}
+	</style>
+</head>
+<body>
+<div id="square"></div>
+	<script type="text/javascript">
+		anMouse.init({id:'square'});
+		document.getElementById('square').addEventListener('mouseout', function(){
+		    console.log(anMouse.getHorizontalAngel());
+		    console.log(anMouse.getHorizontalAngelDeg());
+		})
+	</script>
+</body>
+</html>
