@@ -61,16 +61,12 @@ window.anMouse = (function(){
             },
             savePoint: function(e){
                 //IE下会存e的引用, 所以这里直接取出需要的数据新建个对象保存
-                var e = {clientX: e.clientX, clientY: e.clientY, timeStamp: e.timeStamp};
+                var e = {x: e.clientX, y: e.clientY, t: e.timeStamp};
 
                 while(local.points.length >= local.option.maxLength){
                      local.points.shift();
                 }
                 local.points.push(e);
-            },
-            convertToPoint: function(e){
-                if(!e) return {"x":0, "y":0};
-                return {"x":e.clientX || 0, "y":-e.clientY || 0};
             },
             getData: function(){
                 return local.points;
@@ -88,10 +84,10 @@ window.anMouse = (function(){
                 return self.getFullVector().horizontalAngelDeg();
             },
             getStartPoint: function(){
-                return self.convertToPoint(local.points[0]);
+                return local.points[0];
             },
             getEndPoint: function(){
-                return self.convertToPoint(local.points[local.points.length-1]);
+                return local.points[local.points.length-1];
             }
         };
 
