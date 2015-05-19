@@ -61,7 +61,7 @@ window.anMouse = (function(){
             },
             savePoint: function(e){
                 //IE下会存e的引用, 所以这里直接取出需要的数据新建个对象保存
-                var e = {x: e.clientX, y: e.clientY, t: e.timeStamp};
+                var e = {x: e.clientX, y: -e.clientY, t: e.timeStamp};
 
                 while(local.points.length >= local.option.maxLength){
                      local.points.shift();
